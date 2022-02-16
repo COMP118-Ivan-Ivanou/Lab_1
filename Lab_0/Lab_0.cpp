@@ -1,3 +1,15 @@
+/**\file		Lab_1_and_2
+*  \brief		Program which creates a menu where user can select which function to call
+*  \details		Program which creates a menu via do while loop 
+*				where user can select which function to call. 
+*				Also there is a functions like shapeLen & shape...
+*				which we cannot call from the menu
+*  \author		Ivan Ivanou
+*  \version		0.2
+*  \date		02.16.2022(dd.mm.yyyy)
+*  \copyright	GNU Public License
+*/
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -66,60 +78,104 @@ int main() {
 	} while (num1 != 5);
 }
 
+/*
+* Function draws a horizontal line
+* @param numb to set a maximum value for the for loop
+* @return a horizontal line
+* returning in case that the number is > 0 
+*/
 void drawAhorizontalLine(int numb) {
-	//creating a loop which take numb1 as a parameter of amount of *
-	for (int i = 0; i < numb; i++) {
-		cout << "*";
+	//check if the number acceptable
+	if (numb > 0) {
+		//creating a loop which take numb1 as a parameter of amount of *
+		for (int i = 0; i < numb; i++) {
+			cout << "*";
+		}
 	}
 }
 
+/*
+* Function draws a vertical line
+* @param numb1 to set a maximum value for the for loop
+* @return a vertical line
+* returning in case that the number is > 0
+*/
 void drawAverticalLine(int numb1) {
-	//creating a loop which take numb1 as a parameter of amount of *
-	for (int i = 0; i < numb1; i++) {
-		cout << "@\n";
+	if (numb1 > 0) {
+		//creating a loop which take numb1 as a parameter of amount of *
+		for (int i = 0; i < numb1; i++) {
+			cout << "@\n";
+		}
 	}
 }
 
+/*
+* Function draws a square
+* @param numb2 to set a maximum value for the for loops to draw 
+* a top wall of square
+* @return a square
+* returning in case that the number is > 0
+*/
 void drawAsquare(int numb2) {
-	//draw the top wall
-	for (int column = 0; column < numb2; ++column)
-	{
-		cout << "$";
-	}
-
-	cout << "\n";
-	//draw the sides.
-	for (int row = 0; row < numb2; ++row)
-	{
-		cout << "$";
-		//second wall
-		for (int column = 0; column < numb2 - 2; ++column)
+	if (numb2 > 0) {
+		//draw the top wall
+		for (int column = 0; column < numb2; ++column)
 		{
-			cout << " ";
+			cout << "$";
 		}
-		cout << "$\n";
-	}
 
-	//draw bottom wall 
-	for (int column = 0; column < numb2; ++column)
-	{
-		cout << "$";
+		cout << "\n";
+		//draw the sides.
+		for (int row = 0; row < numb2; ++row)
+		{
+			cout << "$";
+			//second wall
+			for (int column = 0; column < numb2 - 2; ++column)
+			{
+				cout << " ";
+			}
+			cout << "$\n";
+		}
+
+		//draw bottom wall 
+		for (int column = 0; column < numb2; ++column)
+		{
+			cout << "$";
+		}
+		//stop printing
+		cout << "\n";
 	}
-	//stop printing
-	cout << "\n";
 }
 
+/*
+* Function draws a rectangle
+* @param numb3 to set a maximum value for the for loops to 
+* set a height of rectangle
+* @param numb4 to set a maximum value for the for loops to 
+* set a weight of rectangle
+* @return a rectangle
+* returning in case that the numbers is > 0
+*/
 void draw_rectangle(int numb3, int numb4) {
-	//using for loop for the height
-	for (int i = 0; i < numb3; i++) {
-		//using for loop for the weight
-		for (int y = 0; y < numb4; y++) {
-			cout << "^ ";
+	if (numb3 > 0 && numb4 > 0) {
+		//using for loop for the height
+		for (int i = 0; i < numb3; i++) {
+
+			//using for loop for the weight
+			for (int y = 0; y < numb4; y++) {
+				cout << "^ ";
+			}
+
+			cout << endl;
 		}
-		cout << endl;
 	}
 }
 
+/*
+* Function generates a random int array with numbers between 1 and 4
+* @param randArray to store randomly generated numbers
+* @return a array with random numbers
+*/
 void shapeTy(int randArray[MAX_ARRAY]) {
 	//putting random numbers
 	for (int i = 0; i < MAX_ARRAY; i++) {
@@ -131,6 +187,11 @@ void shapeTy(int randArray[MAX_ARRAY]) {
 	}
 }
 
+/*
+* Function generates a random int array with numbers between 1 and 20
+* @param randArray1 to store randomly generated numbers
+* @return a array with random numbers
+*/
 void shapeLen(int randArray1[MAX_ARRAY]) {
 	//putting random numbers
 	for (int i = 0; i < MAX_ARRAY; i++) {
@@ -144,6 +205,11 @@ void shapeLen(int randArray1[MAX_ARRAY]) {
 	cout << sizeof(randArray1);
 }
 
+/*
+* Function generates a random char array with random chars from alphabers[] array
+* @param randArray2 to store randomly generated chars
+* @return a array with random chars
+*/
 void shapeCh(char randArray2[MAX_ARRAY]) {
 	//creating array with letters
 	char alphabets[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
